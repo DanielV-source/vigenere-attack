@@ -183,7 +183,7 @@ def get_lang(text, alphabet, lang_fqs):
 def main():
     global PARTITION_LENGTH
 
-    #start_time = time.time()
+    start_time = time.time()
 
     n_args = len(sys.argv) - 1
 
@@ -233,14 +233,14 @@ def main():
             keys.append(key)
             decrypted_text = vigenere_decrypt(i_file, key, char_to_index, index_to_char, d_length, k_length)
             if get_hash(decrypted_text) == h_file:
-                # print("------------------------------------------------------------------")
+                print("------------------------------------------------------------------")
                 print(f"Key: {key}.")
-                # print(f"Execution time: {time.time() - start_time}")
-                # print(f"Language estimated: {lang}")
-                # print(f"Alphabet: {alphabet}")
-                # print(f"Encrypted Text: {i_file[:50]}...")
-                # print(f"Decrypted Text: {decrypted_text[:50]}...")
-                # print("------------------------------------------------------------------")
+                print(f"Execution time: {time.time() - start_time}")
+                print(f"Language estimated: {best_lang}")
+                print(f"Alphabet: {alphabet}")
+                print(f"Encrypted Text: {i_file[:50]}...")
+                print(f"Decrypted Text: {decrypted_text[:50]}...")
+                print("------------------------------------------------------------------")
                 return
         current_partition += PARTITION_LENGTH
         max_key_length += PARTITION_LENGTH
